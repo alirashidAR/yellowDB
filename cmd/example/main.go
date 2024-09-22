@@ -8,6 +8,7 @@ import (
 	"github.com/alirashidAR/yellowDB/pkg/database"
 	"github.com/alirashidAR/yellowDB/internal/embedding" // Embedder package for generating embeddings
 	"github.com/alirashidAR/yellowDB/pkg/vector"
+	"github.com/alirashidAR/yellowDB/internal/tokenizer"
 )
 
 func main() {
@@ -37,6 +38,12 @@ func main() {
 	}
 
 	embedder := embedding.NewEmbedder()
+	tokenizer := tokenizer.NewTokenizer()
+	val := tokenizer.Tokenize("Hello World my name is Ali")
+	fmt.Println(val)
+	fmt.Println(len(val))
+
+	
 
 	// Add embedded vectors to the database
 	for i, sentence := range sentences {
